@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	m := demo.SayHi()
+	m, _ := demo.SayHi()
 	fmt.Println(m)
 }
