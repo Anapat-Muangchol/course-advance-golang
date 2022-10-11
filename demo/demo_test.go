@@ -6,6 +6,11 @@ import (
 	"testing"
 )
 
+// Test
+// Benchmark
+// Example
+// Fuzzy
+
 func TestFirstCase(t *testing.T) {
 	expected := "Hello"
 	r, _ := demo.SayHi()
