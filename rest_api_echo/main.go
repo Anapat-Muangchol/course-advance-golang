@@ -2,12 +2,19 @@ package main
 
 import (
 	"api/users"
+	"flag"
+	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
 )
 
+// Command start server -> $go run main.go -port 8080
+var port = flag.String("port", "1323", "Server Port")
+
 func main() {
+	flag.Parse()
+
 	// Echo server
 	e := echo.New()
 
@@ -18,7 +25,7 @@ func main() {
 	e.GET("/users", users.UserHandler)
 
 	// Start server
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(fmt.Sprintf(":%s", *port)))
 }
 
 func homeHandler(c echo.Context) error {
