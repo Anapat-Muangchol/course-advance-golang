@@ -1,5 +1,7 @@
 # course-advance-golang-day-1
 
+https://miro.com/app/board/uXjVPOrljZY=/
+
 ----
 
 Run & Build command
@@ -40,6 +42,8 @@ https://github.com/sirupsen/logrus
 
 https://github.com/stretchr/testify
 
+https://github.com/go-playground/validator
+
 ---
 
 Field Alignment จัดเรียง Field ใน Struct เพื่อให้ใช้ memory น้อยลง
@@ -51,5 +55,11 @@ go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignme
 example.
 
 fieldalignment -fix cmd/struct_reduce_resorce.go
+
+---
+
+go workspaces
+
+https://go.dev/doc/tutorial/workspaces
 
 ---
