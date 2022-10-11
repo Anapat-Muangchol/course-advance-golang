@@ -17,10 +17,17 @@ type ServiceA struct {
 }
 
 // NewServiceA pattern of init service, create function NewService for use
-func NewServiceA(id int, name string) ServiceA {
+func NewServiceAExam1(id int, name string) ServiceA {
 	a1 := A1{Id: id}
 	a2 := A2{A1: a1, Name: name}
 	return ServiceA{A2: a2}
+}
+
+func NewServiceAExam2(id int, name string) ServiceA {
+	serviceA := ServiceA{}
+	serviceA.Id = id
+	serviceA.Name = name
+	return serviceA
 }
 
 func RunStruct2() {
@@ -36,9 +43,15 @@ func RunStruct2() {
 	a2.Name = "Johnny"
 	fmt.Println("a2 = ", a2)
 
-	service := NewServiceA(3, "Anapat")
-	fmt.Println("service = ", service)
+	service1 := NewServiceAExam1(3, "Anapat")
+	fmt.Println("service1 = ", service1)
 
-	service.Name = "Anapat.Mua"
-	fmt.Println("service = ", service)
+	service1.Name = "Anapat.Mua"
+	fmt.Println("service1 = ", service1)
+
+	service2 := NewServiceAExam2(4, "Anapat")
+	fmt.Println("service2 = ", service2)
+
+	service2.Name = "Anapat.Muangchol"
+	fmt.Println("service2 = ", service2)
 }
