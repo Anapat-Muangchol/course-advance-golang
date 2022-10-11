@@ -25,7 +25,10 @@ func main() {
 
 	// Routers
 	e.GET("/", homeHandler)
-	e.GET("/users", users.UserHandler)
+
+	// User
+	userService := users.NewUserService()
+	e.GET("/users", users.UserHandler(userService))
 
 	// Start server
 	e.Logger.Fatal(e.Start(fmt.Sprintf(":%s", *port)))
