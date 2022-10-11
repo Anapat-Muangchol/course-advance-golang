@@ -33,3 +33,10 @@ func loop() {
 		fmt.Println(m)
 	}
 }
+
+func testDefer() {
+	for i := 0; i < 5; i++ {
+		defer fmt.Println(i)
+	}
+	fmt.Println("End")
+}
