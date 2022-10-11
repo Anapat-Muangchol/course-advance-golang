@@ -41,3 +41,15 @@ https://github.com/sirupsen/logrus
 https://github.com/stretchr/testify
 
 ---
+
+Field Alignment จัดเรียง Field ใน Struct เพื่อให้ใช้ memory น้อยลง
+
+go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@latest
+
+(GOPAHT)/fieldalignment -fix (file.go)
+
+example.
+
+fieldalignment -fix cmd/struct_reduce_resorce.go
+
+---
