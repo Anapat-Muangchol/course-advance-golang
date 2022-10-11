@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/labstack/echo/v4"
 )
@@ -13,6 +14,8 @@ import (
 var port = flag.String("port", "1323", "Server Port")
 
 func main() {
+	fmt.Println(os.Getenv("GOPATH"))
+
 	flag.Parse()
 
 	// Echo server
