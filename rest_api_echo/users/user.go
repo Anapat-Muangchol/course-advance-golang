@@ -10,7 +10,7 @@ type UserResponse struct {
 	Message string `json:"message"`
 }
 
-func UserHandler(service *UserService) echo.HandlerFunc {
+func GetUserHandler(service *UserService) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		res := UserResponse{
 			Message: service.GetAll(),
