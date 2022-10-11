@@ -22,7 +22,7 @@ func main() {
 	//for {}
 
 	m, err := demo.SayHi()
-	if err != nil {
+	if err == nil {
 		fmt.Println(m)
 	}
 }
