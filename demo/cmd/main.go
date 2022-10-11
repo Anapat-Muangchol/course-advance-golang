@@ -6,6 +6,8 @@ import (
 )
 
 func main() {
-	m, _ := demo.SayHi()
-	fmt.Println(m)
+	m, err := demo.SayHi()
+	if err != nil {
+		fmt.Println(m)
+	}
 }
