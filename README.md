@@ -36,4 +36,8 @@ https://docs.gofiber.io/
 
 https://github.com/uber-go/zap
 
+https://github.com/sirupsen/logrus
+
+https://github.com/stretchr/testify
+
 ---
