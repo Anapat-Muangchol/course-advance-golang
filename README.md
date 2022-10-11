@@ -1,23 +1,39 @@
 # course-advance-golang-day-1
 
-command
-
 ----
 
-go run cmd/main.go
+Run & Build command
 
-go build -o demo cmd/main.go
+$ go run cmd/main.go
+
+$ go build -o demo cmd/main.go
 
 ---
 
-go test ./...
+Testing
 
-go test demo
+$ go test ./...
 
-go test demo -v
+$ go test demo
 
-go test demo -v -cover
+$ go test demo -v
+
+$ go test demo -v -cover
 
 https://pkg.go.dev/testing
+
+---
+
+Ref: lib & framework
+
+https://github.com/go-chi/chi
+
+https://github.com/gin-gonic/gin
+
+https://echo.labstack.com/
+
+https://docs.gofiber.io/
+
+https://github.com/uber-go/zap
 
 ---
