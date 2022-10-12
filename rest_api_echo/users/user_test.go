@@ -11,10 +11,27 @@ import (
 	"testing"
 )
 
+func TestSuccessWithGet(t *testing.T) {
+	// Start server
+	e := echo.New()
+	rec := httptest.NewRecorder()
+	req := httptest.NewRequest(http.MethodGet, "/users", nil)
+	c := e.NewContext(req, rec)
+
+	repo := users.UserRepository{}
+	service := users.NewUserService(repo)
+	users.GetUserHandler(service)(c)
+
+	// Assert
+	assert.Equal(t, rec.Code, 200)
+	assert.Contains(t, rec.Body.String(), "Call get user")
+}
+
 func TestSuccessWithGetWithRealServer(t *testing.T) {
 	// Setup router
 	e := echo.New()
-	service := users.NewUserService()
+	repo := users.UserRepository{}
+	service := users.NewUserService(repo)
 	e.GET("/users", users.GetUserHandler(service))
 
 	// Call API
@@ -25,6 +42,6 @@ func TestSuccessWithGetWithRealServer(t *testing.T) {
 	e.ServeHTTP(rec, req)
 
 	// Assert
-	assert.Equal(t, rec.Code, 200)
+	assert.Equal(t, 200, rec.Code)
 	assert.Contains(t, rec.Body.String(), "Call get user")
 }

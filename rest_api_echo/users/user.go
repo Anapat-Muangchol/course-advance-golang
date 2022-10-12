@@ -19,18 +19,30 @@ func GetUserHandler(service *UserService) echo.HandlerFunc {
 	}
 }
 
-// Service
+// Services -> Repository
 type UserServiceInterface interface {
 	GetAll() string
 }
 
 type UserService struct {
+	repo UserRepository
 }
 
-func NewUserService() *UserService {
-	return &UserService{}
+func NewUserService(repo UserRepository) *UserService {
+	return &UserService{
+		repo: repo,
+	}
 }
 
-func (us *UserService) GetAll() string {
-	return fmt.Sprintf("Call get user")
+func (s *UserService) GetAll() string {
+	result, _ := s.repo.GetSth()
+	return result
+}
+
+// Repository
+type UserRepository struct {
+}
+
+func (r *UserRepository) GetSth() (string, error) {
+	return fmt.Sprintf("Call get user"), fmt.Errorf("TODO next")
 }
