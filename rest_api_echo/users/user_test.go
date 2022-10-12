@@ -11,15 +11,20 @@ import (
 	"testing"
 )
 
-func TestGetUserHandlerSuccess(t *testing.T) {
-	// Start server
+func TestSuccessWithGetWithRealServer(t *testing.T) {
+	// Setup router
 	e := echo.New()
 	service := users.NewUserService()
 	e.GET("/users", users.GetUserHandler(service))
 
+	// Call API
 	rec := httptest.NewRecorder()
-	httptest.NewRequest(http.MethodGet, "/users", nil)
+	req := httptest.NewRequest(http.MethodGet, "/users", nil)
 
-	resCodeExpected := 200
-	assert.Equal(t, resCodeExpected, rec.Code)
+	// Start server
+	e.ServeHTTP(rec, req)
+
+	// Assert
+	assert.Equal(t, rec.Code, 200)
+	assert.Contains(t, rec.Body.String(), "Call get user")
 }

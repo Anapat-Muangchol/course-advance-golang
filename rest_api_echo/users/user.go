@@ -27,10 +27,10 @@ type UserServiceInterface interface {
 type UserService struct {
 }
 
-func (us *UserService) GetAll() string {
-	return fmt.Sprintf("Get with user")
-}
-
 func NewUserService() *UserService {
 	return &UserService{}
+}
+
+func (us *UserService) GetAll() string {
+	return fmt.Sprintf("Call get user")
 }
