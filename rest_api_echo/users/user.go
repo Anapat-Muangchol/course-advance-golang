@@ -20,15 +20,15 @@ func GetUserHandler(service *UserService) echo.HandlerFunc {
 }
 
 // Services -> Repository
-type UserServiceInterface interface {
+type IService interface {
 	GetAll() string
 }
 
 type UserService struct {
-	repo UserRepository
+	repo IRepository
 }
 
-func NewUserService(repo UserRepository) *UserService {
+func NewUserService(repo IRepository) *UserService {
 	return &UserService{
 		repo: repo,
 	}
@@ -40,9 +40,17 @@ func (s *UserService) GetAll() string {
 }
 
 // Repository
+type IRepository interface {
+	GetSth() (string, error)
+}
+
 type UserRepository struct {
 }
 
+func NewUserRepository() UserRepository {
+	return UserRepository{}
+}
+
 func (r *UserRepository) GetSth() (string, error) {
-	return fmt.Sprintf("Call get user"), fmt.Errorf("TODO next")
+	return "TODO next", fmt.Errorf("TODO next")
 }

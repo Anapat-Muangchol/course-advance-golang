@@ -27,8 +27,8 @@ func main() {
 	e.GET("/", homeHandler)
 
 	// User
-	userRepository := users.UserRepository{}
-	userService := users.NewUserService(userRepository)
+	userRepository := users.NewUserRepository()
+	userService := users.NewUserService(&userRepository)
 	e.GET("/users", users.GetUserHandler(userService))
 
 	// Start server

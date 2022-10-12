@@ -18,20 +18,20 @@ func TestSuccessWithGet(t *testing.T) {
 	req := httptest.NewRequest(http.MethodGet, "/users", nil)
 	c := e.NewContext(req, rec)
 
-	repo := users.UserRepository{}
-	service := users.NewUserService(repo)
+	repo := users.NewUserRepository()
+	service := users.NewUserService(&repo)
 	users.GetUserHandler(service)(c)
 
 	// Assert
 	assert.Equal(t, rec.Code, 200)
-	assert.Contains(t, rec.Body.String(), "Call get user")
+	assert.Contains(t, rec.Body.String(), "TODO next")
 }
 
 func TestSuccessWithGetWithRealServer(t *testing.T) {
 	// Setup router
 	e := echo.New()
-	repo := users.UserRepository{}
-	service := users.NewUserService(repo)
+	repo := users.NewUserRepository()
+	service := users.NewUserService(&repo)
 	e.GET("/users", users.GetUserHandler(service))
 
 	// Call API
@@ -43,5 +43,5 @@ func TestSuccessWithGetWithRealServer(t *testing.T) {
 
 	// Assert
 	assert.Equal(t, 200, rec.Code)
-	assert.Contains(t, rec.Body.String(), "Call get user")
+	assert.Contains(t, rec.Body.String(), "TODO next")
 }
