@@ -1,6 +1,7 @@
 package main
 
 import (
+	"api/internal"
 	"api/users"
 	"flag"
 	"fmt"
@@ -12,6 +13,7 @@ import (
 
 // Command start server -> $go run main.go -port 8080
 var port = flag.String("port", "1323", "Server Port")
+var url = flag.String("url", "mongodb://user:pass@sample.host:27017", "Host Name MongoDb")
 
 func main() {
 	fmt.Println(os.Getenv("GOPATH"))
@@ -27,7 +29,8 @@ func main() {
 	e.GET("/", homeHandler)
 
 	// User
-	userRepository := users.NewUserRepository()
+	client := internal.NewMongoClient(*url)
+	userRepository := users.NewUserRepository(client)
 	userService := users.NewUserService(&userRepository)
 	e.GET("/users", users.GetUserHandler(userService))
 

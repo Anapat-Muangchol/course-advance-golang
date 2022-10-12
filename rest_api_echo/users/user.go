@@ -3,6 +3,7 @@ package users
 import (
 	"fmt"
 	"github.com/labstack/echo/v4"
+	"go.mongodb.org/mongo-driver/mongo"
 	"net/http"
 )
 
@@ -45,12 +46,16 @@ type IRepository interface {
 }
 
 type UserRepository struct {
+	client *mongo.Client
 }
 
-func NewUserRepository() UserRepository {
-	return UserRepository{}
+func NewUserRepository(client *mongo.Client) UserRepository {
+	return UserRepository{
+		client: client,
+	}
 }
 
 func (r *UserRepository) GetSth() (string, error) {
+
 	return "TODO next", fmt.Errorf("TODO next")
 }
