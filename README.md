@@ -69,3 +69,9 @@ go workspaces
 https://go.dev/doc/tutorial/workspaces
 
 ---
+
+Mongo DB
+
+$ docker run --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=password -d mongo
+
+---

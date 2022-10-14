@@ -13,7 +13,7 @@ import (
 
 // Command start server -> $go run main.go -port 8080
 var port = flag.String("port", "1323", "Server Port")
-var url = flag.String("url", "mongodb://user:pass@sample.host:27017", "Host Name MongoDb")
+var url = flag.String("url", "mongodb://root:password@localhost:27017", "Host Name MongoDb")
 
 func main() {
 	fmt.Println(os.Getenv("GOPATH"))
