@@ -81,3 +81,23 @@ Mongo DB
 $ docker run --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=password -d mongo
 
 ---
+
+Golang Docker
+
+$ docker image build -t api:1.0.0 . 
+
+$ docker container run -d -p 1323:1323 --name demo-api api:1.0.0 
+
+Docker Compose
+
+$ docker-compose build
+
+$ docker-compose up -d
+
+$ docker-compose ps
+
+$ docker-compose log -f
+
+$ docker-compose down
+
+---
