@@ -2,8 +2,6 @@
 
 https://miro.com/app/board/uXjVPOrljZY=/
 
-https://miro.com/app/board/uXjVPOrljZY=/
-
 https://github.com/up1/workshop-go-20221011
 
 https://github.com/up1/course-go-2022
