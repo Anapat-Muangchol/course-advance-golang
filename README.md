@@ -108,4 +108,12 @@ http://localhost:1323/metrics
 
 https://awesome-prometheus-alerts.grep.to/
 
+http://localhost:9090/
+
+---
+
+Zipkin
+
+http://localhost:9411/
+
 ---
