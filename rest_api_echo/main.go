@@ -5,6 +5,7 @@ import (
 	"api/users"
 	"flag"
 	"fmt"
+	"github.com/labstack/echo/v4/middleware"
 	"net/http"
 	"os"
 
@@ -23,7 +24,8 @@ func main() {
 	// Echo server
 	e := echo.New()
 
-	// Add middlewares ...
+	// Add global middlewares ...
+	e.Use(middleware.Recover())
 
 	// Routers
 	e.GET("/", homeHandler)

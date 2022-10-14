@@ -64,6 +64,12 @@ fieldalignment -fix cmd/struct_reduce_resorce.go
 
 ---
 
+Check performance http api (load test)
+
+$ wrk -t 5 -c 100 -d 10s http://localhost:1323/users
+
+---
+
 go workspaces
 
 https://go.dev/doc/tutorial/workspaces
