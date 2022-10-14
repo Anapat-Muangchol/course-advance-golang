@@ -5,11 +5,11 @@ import (
 	"api/users"
 	"flag"
 	"fmt"
+	"github.com/labstack/echo-contrib/prometheus"
+	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"net/http"
 	"os"
-
-	"github.com/labstack/echo/v4"
 )
 
 // Command start server -> $go run main.go -port 8080
@@ -25,6 +25,8 @@ func main() {
 	e := echo.New()
 
 	// Add global middlewares ...
+	p := prometheus.NewPrometheus("echo", nil)
+	p.Use(e)
 	e.Use(middleware.Recover())
 
 	// Routers
