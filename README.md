@@ -110,10 +110,20 @@ https://awesome-prometheus-alerts.grep.to/
 
 http://localhost:9090/
 
+https://grafana.com/grafana/dashboards/10913-tsuru-echo-framework-processes/
+
 ---
 
 Zipkin
 
 http://localhost:9411/
+
+---
+
+https://buildpacks.io/
+
+$ pack build demo-with-pack --buildpack paketo-buildpacks/go --builder paketobuildpacks/builder:base
+
+ไม่สน dockerfile แต่มีข้อคำกัดคือ image ใหญ่มาก เลยยังไม่เป็นที่นิยม 
 
 ---
