@@ -1,4 +1,4 @@
-# course-advance-golang-day-1
+# course-advance-golang
 
 https://miro.com/app/board/uXjVPOrljZY=/
 
